@@ -1,0 +1,17 @@
+<h5><b>Forcast</b></h5>
+<table class="table" border="1">
+  <thead class="thead-light">
+    <tr>
+      <th>Temperature</th>
+      <th>Humidity</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @forecast[:temperature] %>°C</td>
+      <td><%= @forecast[:humidity] %></td>
+      <td><%= @forecast[:description] %><%= image_tag "http://openweathermap.org/img/w/#{@forecast[:icon]}.png", height: '50px', width: '50px'%></td>
+    </tr>
+  </tbody>
+</table>

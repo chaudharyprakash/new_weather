@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <!-- app/views/weather/forecast.html.erb -->
 <h1>Weather Forecast</h1>
 
@@ -6,26 +7,21 @@
   <%= text_field_tag :city, params[:city] %>
   <%= submit_tag 'Search' %>
 <% end %>
-
-<% if @forecast %>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>High Temp</th>
-        <th>Low Temp</th>
-        <th>Weather</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @forecast.each do |entry| %>
-        <tr>
-          <td><%= entry['dt_txt'] %></td>
-          <td><%= entry['main']['temp_max'].round(2) %> °C</td>
-          <td><%= entry['main']['temp_min'].round(2) %> °C</td>
-          <td><%= entry['weather'].first['description'].capitalize %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div class="wrapper mx-auto me-5">
+  <div class="cotainer mt-2">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @forecast %>
+          <%= render partial: 'forecast' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <% if @current_weather %>
+          <%= render partial: 'current_weather' %>
+        <% end %>
+      </div>
+    </row>
+  </div>
+</div>
